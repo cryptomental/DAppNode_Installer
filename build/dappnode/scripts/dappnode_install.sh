@@ -9,7 +9,7 @@ mkdir -p $DAPPNODE_DIR
 mkdir -p $DAPPNODE_CORE_DIR
 mkdir -p "${DAPPNODE_CORE_DIR}scripts"
 
-PROFILE_URL="https://raw.githubusercontent.com/dappnode/DAppNode_Installer/master/build/scripts/.dappnode_profile"
+PROFILE_URL="https://raw.githubusercontent.com/cryptomental/DAppNode_Installer/master/build/scripts/.dappnode_profile"
 PROFILE_FILE="${DAPPNODE_CORE_DIR}.dappnode_profile"
 
 source /etc/os-release
@@ -30,8 +30,8 @@ components=(BIND IPFS ETHCHAIN ETHFORWARD VPN WAMP DAPPMANAGER ADMIN)
 # If such variable with 'dev:'' suffix is used, then the component is built from specified branch or commit.
 for comp in "${components[@]}"; do
     ver="${comp}_VERSION"
-    eval "${comp}_URL=\"https://github.com/dappnode/DNP_${comp}/releases/download/v${!ver}/${comp,,}.dnp.dappnode.eth_${!ver}.tar.xz\""
-    eval "${comp}_YML=\"https://github.com/dappnode/DNP_${comp}/releases/download/v${!ver}/docker-compose-${comp,,}.yml\""
+    eval "${comp}_URL=\"https://github.com/cryptomental/DNP_${comp}/releases/download/v${!ver}/${comp,,}.dnp.dappnode.eth_${!ver}.tar.xz\""
+    eval "${comp}_YML=\"https://github.com/cryptomental/DNP_${comp}/releases/download/v${!ver}/docker-compose-${comp,,}.yml\""
     eval "${comp}_YML_FILE=\"${DAPPNODE_CORE_DIR}docker-compose-${comp,,}.yml\""
     eval "${comp}_FILE=\"${DAPPNODE_CORE_DIR}${comp,,}.dnp.dappnode.eth_${!ver##*:}.tar.xz\""
 done
@@ -44,7 +44,7 @@ dappnode_core_build()
         if [[ ${!ver} == dev:* ]]; then
             echo "Cloning & building DNP_${comp}..."
             pushd $DAPPNODE_CORE_DIR
-            git clone -b "${!ver##*:}" https://github.com/dappnode/DNP_${comp}
+            git clone -b "${!ver##*:}" https://github.com/cryptomental/DNP_${comp}
             # Change version in YAML to the custom one
             sed -i "s~^\(\s*image\s*:\s*\).*~\1${comp,,}.dnp.dappnode.eth:${!ver##*:}~" DNP_${comp}/docker-compose-${comp,,}.yml
             docker-compose -f ./DNP_${comp}/docker-compose-${comp,,}.yml build

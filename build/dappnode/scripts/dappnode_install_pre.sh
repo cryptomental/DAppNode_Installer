@@ -9,9 +9,9 @@ LIB_DIR="${DAPPNODE_DIR}/libs/linux/debian/"
 LIBLTDL_PATH="${LIB_DIR}/${LIBLTDL_PKG}"
 DCMP_PATH="/usr/local/bin/docker-compose"
 
-DOCKER_URL="https://raw.githubusercontent.com/dappnode/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/bin/docker/${DOCKER_PKG}"
-LIBLTDL_URL="https://raw.githubusercontent.com/dappnode/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/libs/linux/debian/${LIBLTDL_PKG}"
-DCMP_URL="https://raw.githubusercontent.com/dappnode/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/bin/docker/docker-compose-Linux-x86_64"
+DOCKER_URL="https://raw.githubusercontent.com/cryptomental/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/bin/docker/${DOCKER_PKG}"
+LIBLTDL_URL="https://raw.githubusercontent.com/cryptomental/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/libs/linux/debian/${LIBLTDL_PKG}"
+DCMP_URL="https://raw.githubusercontent.com/cryptomental/DAppNode_Installer/${GIT_BRANCH}/build/dappnode/bin/docker/docker-compose-Linux-x86_64"
 
 detect_installation_type(){
     if [ -f "${DAPPNODE_DIR}/iso_install.log" ]; then
